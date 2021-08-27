@@ -1,7 +1,7 @@
 from PIL import Image
 import requests
-ASCII_CHARS = "$@B%8&WM#*oahkbdpqzcvunxrjft/\\|()1{}[]?-_+~i!lI;:,\"^`. "
-ASCII_CHARS = [x for x in ASCII_CHARS[::-1]]
+ASCII_CHARS = "$@B%8&WM#*oahkbdpqzcvunxrjft/\\|()1{}[]?-_+~i!lI;:,      "
+ASCII_CHARS = [x for x in ASCII_CHARS]
 
 def resize(image, new_width=100):
     (old_width, old_height) = image.size
@@ -16,9 +16,9 @@ def grayscalify(image):
 def modify(image, buckets=5):
     initial_pixels = list(image.getdata())
     background = set([ASCII_CHARS[pixel_value//buckets] for pixel_value in initial_pixels[0:10]])
-    if len(background - set(ASCII_CHARS[-10:-1])) == 0:
-        ASCII_CHARS == ASCII_CHARS[::-1]
-        print("ASCII_SET_REVERSED")
+#    if len(background - set(ASCII_CHARS[-10:-1])) == 0:
+#        ASCII_CHARS == ASCII_CHARS[::-1]
+#        print("ASCII_SET_REVERSED")
     new_pixels = [ASCII_CHARS[pixel_value//buckets] for pixel_value in initial_pixels]
     if len(set(new_pixels)) == 1:
         return

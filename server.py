@@ -26,11 +26,13 @@ async def echo():
         mode = data['mode']
         width = data['width']
         imageurl = searchforimage(searchterm)
-        if mode == 'ascii':
-            asciiart = ascify.runner(imageurl, width)
+        asciiart = ascify.runner(imageurl, width)
+        if mode == 'render':
             return await render_template("index.html", content=True, asciiart=asciiart)
-        elif mode == 'render':
+        elif mode == 'raw':
             return f"""<img src='{imageurl}'></img>"""
+        elif mode == 'ascii':
+            return asciiart
     except Exception as e:
         print(e)
         return await send_from_directory("/", "failed.html")
