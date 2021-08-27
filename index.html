@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ascii-Art-as-a-Service</title>
+</head>
+<style type="text/css">
+  pre {
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: auto;
+    text-align: center;
+    white-space: pre;
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(51, 51, 51);
+    text-transform: none;
+    text-decoration: none solid rgb(51, 51, 51);
+    font-variant: normal;
+  }
+  body {
+    text-align: center;
+    text-color: #FFFFFF;
+  }
+  p {text-align: center;}
+  div {text-align: center;}
+</style>
+<body>
+<h1>Welcome to AAaaS</h1>
+<h2>An api service for ascii art on demand</h2>
+    <body>
+        {% if content == True %}
+            <pre>{{asciiart}}</pre>
+        {% endif %}
+    </body>
+
+</body>
+</html>
