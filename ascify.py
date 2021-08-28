@@ -25,10 +25,14 @@ def do(image, new_width=100):
 def modify(image, buckets=5):
     initial_pixels = list(image.getdata())
     background = set([ASCII_CHARS[pixel_value//buckets] for pixel_value in initial_pixels[0:10]])
-    if len(background - set(ASCII_CHARS[-10:-1])) == 0:
-        ASCII_CHARS == ASCII_CHARS[::-1]
-        print("ASCII_SET_REVERSED")
-    new_pixels = [ASCII_CHARS[pixel_value//buckets] for pixel_value in initial_pixels]
+    asciiset = ASCII_CHARS
+    for item in background:
+        if item in set(ASCII_CHARS[0:10]):
+             asciiset = ASCII_CHARS[::-1]
+             print("ASCII_SET_REVERSED")
+             break
+
+    new_pixels = [asciiset[pixel_value//buckets] for pixel_value in initial_pixels]
     if len(set(new_pixels)) == 1:
         return
     return ''.join(new_pixels)
