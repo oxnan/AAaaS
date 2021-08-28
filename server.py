@@ -37,5 +37,10 @@ async def echo():
         print(e)
         return await send_from_directory("/", "failed.html")
 
+
+@app.route("/help")
+async def help():
+    return await send_from_directory("/", "README.md")
+
 if __name__ == "__main__":
     app.run()

@@ -6,4 +6,5 @@ COPY ./index.html /templates/index.html
 COPY ./failed.html .
 COPY ./ddgapi.py .
 COPY ./ascify.py .
+COPY ./README.md .
 CMD ["hypercorn", "--bind", "0.0.0.0:80", "server:app"]
